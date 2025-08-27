@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-          $allOfproductRecoreds = Product::all();
+        $allOfproductRecoreds = Product::all();
         
         return view('Product.Index',['records' => $allOfproductRecoreds]);
     }

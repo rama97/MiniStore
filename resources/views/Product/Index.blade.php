@@ -1,7 +1,7 @@
 @extends('Layout.Base')
 @section('main_content');
-<form action="{{ route('product.search') }}" method="GET" class="filter-form">
-
+<form action="{{ route('product.search') }}" method="POST" class="filter-form">
+ @csrf
     <!-- Search Box -->
     <div class="form-group">
         <label for="q">Search</label>
@@ -36,7 +36,7 @@
 
     <!-- Buttons -->
     <div class="form-actions">
-    <a href="{{ route('product.search') }}">  <button type="submit" class="btn btn-primary">Search</button></a>
+    <button type="submit" class="btn btn-primary">Search</button>
       <button type="reset" class="btn reset-btn ">Reset</button>
     </div>
 </form>
@@ -55,7 +55,8 @@
       </div>
       <div class="card-actions">
    <a href="{{ route('product.show', $product->id) }}">  <button class="btn update-btn"><i class="fas fa-edit" ></i></button></a>
-<form action="{{ route('product.destroy', $product->id) }}" method="POST" style="display:inline;">
+   <a href="{{ route('cart.add', $product->id) }}"> <button class="btn update-btn"><i class="fas fa-plus" ></i></button></a>
+   <form action="{{ route('product.destroy', $product->id) }}" method="POST" style="display:inline;">
     @csrf
     @method('DELETE')
 

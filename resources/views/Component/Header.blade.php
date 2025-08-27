@@ -40,7 +40,45 @@ body {
       justify-content: center;   /* horizontal centering */
   align-items: center;       /* vertical centering */
 }
+.quantity-control button {
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 4px;
+      background: #4CAF50;
+      color: #554f4fff;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
 
+    .quantity-control button:hover {
+      background: #45a049;
+    }
+
+    .quantity-control input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 4px;
+        text-align: center;
+    }
+
+    .remove-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background: #e53935;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .remove-btn:hover {
+      background: #c62828;
+    }
 /* 3. Header */
 header {
   background-color: #2C3E50;
@@ -289,6 +327,7 @@ footer .social a:hover {
   background-color: var(--primary-hover);
 }
 
+
 .filter-form {
     max-width: 400px;
     margin: 20px auto;
@@ -316,6 +355,17 @@ label {
     color: #333;
 }
 
+th {
+  width: 100%;
+  color: #d63838ff;
+    text-align: center;
+}
+
+tr {
+  width: 100%;
+  color: #3a3030ff;
+    text-align: center;
+}
 input[type="text"],
 input[type="number"],
 select {
