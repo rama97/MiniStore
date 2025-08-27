@@ -24,11 +24,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         $validated = $request->validate([
-              'name'  => 'required|string|max:255',
-            'qty' => 'required|integer',
-            'price' => 'required|integer'
+         $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'qty' => 'required|numeric|min:1',
+            'price' => 'required|numeric|min:1',
         ]);
+
+            
+        if ($validator->fails()) {
+        // Return a single error message instead of per field
+
+
+        return back()
+            ->withErrors(['form_error' => 'Please check the form, some fields are invalid.'])
+            ->withInput();
+    }
 
         $product = Product::create($validated);
         return redirect('/')->with('success', 'product created successfully.');
@@ -52,10 +62,19 @@ class ProductController extends Controller
     {
            $data = $request->validate([
             'name'       => 'required|string|max:255',
-            'qty' => 'required|integer',
-            'price' => 'required|integer'
+            'qty' => 'required|numeric|min:1',
+            'price' => 'required|numeric|min:1',
         ]);
 
+     
+           if ($validator->fails()) {
+        // Return a single error message instead of per field
+
+
+        return back()
+            ->withErrors(['form_error' => 'Please check the form, some fields are invalid.'])
+            ->withInput();
+    }
             $record = Product::find($id);
             $record->name = $data['name'];
             $record->qty = $data['qty'];

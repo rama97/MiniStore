@@ -6,6 +6,15 @@
  method="POST">
    @csrf
 
+   @if($errors->any())
+    <div class="alert alert-danger">
+        <strong>Please fix the following issues:</strong>
+        <ul>
+            <li>{{ implode(', ', $errors->all()) }}</li>
+        </ul>
+    </div>
+@endif
+
       <div class="form-group">
         <label for="name">Name</label>
         <input 
